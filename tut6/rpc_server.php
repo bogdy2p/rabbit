@@ -7,7 +7,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
 $channel    = $connection->channel();
 
-$channel->queue_declare('rpq_queue', false, false, false, false);
+$channel->queue_declare('rpc_queue', false, false, false, false);
 
 function fib($n)
 {
@@ -31,7 +31,6 @@ $callback = function($req) {
 };
 
 $channel->basic_qos(null, 1, null);
-
 $channel->basic_consume('rpc_queue', '', false, false, false, false, $callback);
 
 while (count($channel->callbacks)) {
