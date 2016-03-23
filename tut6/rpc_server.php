@@ -19,7 +19,7 @@ echo " [x] Awaiting RPC requests \n";
 
 $callback = function($req) {
     $n = intval($req->body);
-    echo " [.] fib(", $n, ")\n";
+    echo " [x] Requesting fib(", $n, ")\n";
 
     $msg = new AMQPMessage(
         (string) fib($n), array('correlation_id' => $req->get('correlation_id'))
