@@ -24,7 +24,7 @@ foreach ($severities as $severity) {
 echo ' [*] Waiting for logs. To exit press ctrlC', "\n";
 
 $callback = function($msg) {
-    echo ' [x] ', $msg->delivery_ino['routing_key'], ':', $msg->body, "\n";
+    echo ' [x] ', $msg->delivery_info['routing_key'], ':', $msg->body, "\n";
 };
 
 $channel->basic_consume($queue_name, '', false, true, false, false, $callback);
