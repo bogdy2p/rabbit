@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /var/www/html/rabbit
+cd /var/www/html/rabbit/tut2/
 
 php new_task.php vasile....
 php new_task.php vasile...
